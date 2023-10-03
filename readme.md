@@ -9,7 +9,8 @@ This project's origin is [here](https://github.com/weaviate/weaviate-examples/tr
 (TODO: Add used technology stack)
 
 ## Prerequisites
-(TO DO)
+Docker Desktop should be installed and running.
+Python 3.10 or later should be installed.
 
 ## Setup instructions
 1. Make sure you have Weaviate installed and set up. [Check out the documentation](https://weaviate.io/developers/weaviate/current/installation/index.html) for more information!
