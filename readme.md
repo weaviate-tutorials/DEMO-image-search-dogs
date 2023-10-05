@@ -20,19 +20,24 @@ Python 3.10 or later should be installed.
 
 ## Setup instructions
 1. Make sure you have Weaviate installed and set up. [Check out the documentation](https://weaviate.io/developers/weaviate/current/installation/index.html) for more information!
-2. Run the docker file 
+2. Install the Python packages
+   ```bash
+    pip install -r requirements.txt
+    pip install -U "git+https://github.com/weaviate/weaviate-python-client.git@v3.99.0a3#egg=weaviate-client[GRPC]"
+    ```
+3. Run the docker file 
     ```bash
     docker compose up
     ```
-3. Run the schema file
+4. Run the schema file
     ```bash
     python create-schema.py
     ```
-4. Run the images to base64 file 
+5. Run the images to base64 file 
     ```bash
     python images-to-base64.py
     ```
-5. Upload the encoded images 
+6. Upload the encoded images 
     ```bash
     python upload-data-objects.py
     ```
