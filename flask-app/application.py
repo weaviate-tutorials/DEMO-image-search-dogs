@@ -1,3 +1,5 @@
+import io
+
 from flask import Flask, render_template, request
 from PIL import Image
 import base64
@@ -18,15 +20,16 @@ client = weaviate.Client(WEAVIATE_URL,
                          additional_config=Config(grpc_port_experimental=50051))
 
 
-def weaviate_img_search(img_str):
+def weaviate_img_search(br):
     """
     This function uses the nearImage operator in Weaviate. 
     """
     dogs = client.collection.get("Dog")
     weaviate_results = dogs.query.near_image(
-        near_image=img_str,
+        near_image=br,
         limit=2,
         return_properties=["filepath", "breed"])
+    br.close()
 
     return weaviate_results.objects
 
@@ -66,7 +69,8 @@ if client.is_ready():
         uploaded_file.save(buffer, format="JPEG")
         img_str = base64.b64encode(buffer.getvalue()).decode()
 
-        weaviate_results = weaviate_img_search(img_str)
+        buffer.seek(0)
+        weaviate_results = weaviate_img_search(io.BufferedReader(buffer))
         print(weaviate_results)
 
         results = []
@@ -84,4 +88,4 @@ else:
 
 # run the app
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5001)

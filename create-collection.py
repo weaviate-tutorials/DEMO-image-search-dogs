@@ -42,4 +42,4 @@ dogs = client.collection.create(
     vector_index_type=VectorIndexType.HNSW
 )
 
-print("The schema has been defined.")
+print("The 'Dog' class has been defined.")

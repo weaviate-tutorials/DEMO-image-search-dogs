@@ -31,7 +31,7 @@ services:
   flask-app:
     build: .
     ports:
-      - "80:5000"
+      - "80:5001"
     depends_on:
       - "weaviate"
       - "i2v-neural"
