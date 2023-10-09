@@ -5,7 +5,7 @@ set -eou pipefail
 # time for weaviate to get live
 sleep 5
 
-python3 create-schema.py
+python3 create-collection.py
 
 python3 images-to-base64.py
 

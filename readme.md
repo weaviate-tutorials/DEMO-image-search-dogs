@@ -19,16 +19,25 @@ Docker Desktop should be installed and running.
 Python 3.10 or later should be installed.
 
 ## Setup instructions
-1. Make sure you have Weaviate installed and set up. [Check out the documentation](https://weaviate.io/developers/weaviate/current/installation/index.html) for more information!
+Note: We recommend you create a new virtual environment for this.
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+
+1. Install the Python packages.
+   ```bash
+    pip install -r requirements.txt
+    ```
 2. Run the docker file 
     ```bash
     docker compose up
     ```
-3. Run the schema file
+3. Create the class definition
     ```bash
-    python create-schema.py
+    python create-collection.py
     ```
-4. Run the images to base64 file 
+4. Convert images to base64 encodings
     ```bash
     python images-to-base64.py
     ```
@@ -38,7 +47,7 @@ Python 3.10 or later should be installed.
     ```
 ## Usage instructions
 ### Run the application
-Run the Python Flask application and go to http://localhost:5000
+Run the Python Flask application and go to http://localhost:5001
 ```bash
 python flask-app/application.py 
 ```
