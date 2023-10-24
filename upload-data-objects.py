@@ -3,6 +3,25 @@ import weaviate
 from weaviate import Config
 import weaviate.classes as wvc
 
+weight_dict = {
+    "Australian Shepherd": 52,
+    "Bernese Mountain Dog": 94,
+    "Corgi": 26,
+    "French Bulldog": 22,
+    "German Shepherd": 68,
+    "Golden Retriever": 70,
+    "Goldendoodle": 40,
+    "Labrador Retriever": 67,
+    "Rottweiler": 103,
+    "Siberian Husky": 47
+}
+
+
+def get_weight(breed_name):
+    if breed_name in weight_dict:
+        return weight_dict[breed_name]
+    return 50
+
 
 def clear_up_dogs():
     """
@@ -37,6 +56,7 @@ def import_data():
                 "breed": breed,
                 "image": base64_encoding,
                 "filepath": image_file,
+                "weight": get_weight(breed)
             })
         dogs_to_add.append(dog)
 
