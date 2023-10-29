@@ -17,7 +17,7 @@ print(f"Client is ready {client.is_ready()}")
 # delete the Dog collection if already exists
 client.collection.delete(["Dog"])
 
-# creating the Dog collection with the following properties: breed, image, and filepath
+# creating the Dog collection with the following properties: breed, image, weight and filepath
 dogs = client.collection.create(
     name="Dog",
     properties=[
@@ -25,6 +25,11 @@ dogs = client.collection.create(
             name="breed",
             data_type=wvc.DataType.TEXT,
             description="name of dog breed",
+        ),
+        wvc.Property(
+            name="weight",
+            data_type=wvc.DataType.INT,
+            description="average weight of the breed",
         ),
         wvc.Property(
             name="image",
