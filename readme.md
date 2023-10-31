@@ -15,8 +15,17 @@ In this demo, we will use Weaviate to create an image-search application. We'll 
 - Flask (For WebApp interface development)
 - Docker Desktop
 
-**Weaviate Modules:**
-- [List the Weaviate modules used]
+## **Weaviate Modules:**
+
+## Image Vectorization
+
+In this demonstration, we will work with a dataset of dog images. The current dataset includes ten images of different dog breeds. However, you can easily replace these images with any other dataset to suit your specific use case. To do this, add your images to the `flask-app/static/img` folder and execute the `images-to-base64.py` and `upload-data-objects.py` files.
+
+For this use case, it's essential that image vectorization captures information about the dogs, such as breed, size, and color. Weaviate's `img2vec-neural` module is designed to solve this problem. It vectorizes each image, enabling semantic similarity-based searches.
+
+### Img2vec-neural Module
+
+Weaviate's `img2vec-neural` module is a flexible vectorizer that converts images into meaningful vectors. It supports the ResNet-50 model, a Convolutional Neural Network (CNN) trained on the ImageNet database, which contains over 10 million images and 20,000 classes.
 
 ## Prerequisites
 
@@ -85,3 +94,9 @@ python query.py
 ## Dataset License
 
 The dataset currently contains ten images of different dog breeds. You can also build on this and add your own images to the dataset!
+
+# Dog Search 
+
+This project's origin is [here](https://github.com/weaviate/weaviate-examples/tree/main/nearest-neighbor-dog-search).
+Collaborator
+
